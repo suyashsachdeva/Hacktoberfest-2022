@@ -25,7 +25,17 @@ else:
 	print("Invalid Input You Lost!")
 
 while chances_left > 0:
-	user_guess = int(input("Make a guess: "))
+	
+	# Here the try and except is used as any input of some other datatype will result into an error
+	# So, to prevent the program to stop and show error in the runtime try and except is used.
+	
+	try:
+		user_guess = int(input("Make a guess: "))
+		
+	except:
+		print("Please don't enter a non-integer type")
+		user_guess = -1
+		
 	if user_guess > answer:
 		print("Too high.")
 		chances_left -= 1
